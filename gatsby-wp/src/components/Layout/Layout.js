@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import Hamburger from '../Hamburger/Hamburger'
+import Header from '../Header/Header'
 import {GlobalStyles, Primary} from './Layout.styles'
 
 const Layout = ({children}) => {
@@ -11,6 +12,7 @@ const Layout = ({children}) => {
       <>
          <GlobalStyles/>
          <Hamburger handleOverlayMenu={handleOverlayMenu}/>
+         <Header/>
          <Primary>{children}</Primary>
       </>
    )
