@@ -18,4 +18,5 @@ export const useHeroQuery = () => {
       }
       }
    `)
+   return data
 }

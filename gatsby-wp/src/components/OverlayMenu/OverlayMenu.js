@@ -16,7 +16,7 @@ const OverlayMenu = ({menuOpen, callback}) => {
                {wpMenu.menuItems.nodes.map(item=>(
                   !item.parentId ? (
                      <li key={item.id}>
-                        <Link to={item.url} activeClassName='overlayActive'>
+                        <Link to={item.url} activeclassname='overlayActive'>
                            {item.label}
                         </Link>
                      </li>
