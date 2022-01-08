@@ -6,14 +6,14 @@ import CloseBtn from '../../images/close_btn.svg'
 import { Link } from 'gatsby'
 
 const OverlayMenu = ({menuOpen, callback}) => {
-   const {menu} = useMenuQuery()
+   const {wpMenu} = useMenuQuery()
 
    return (
       <Overlay menuOpen={menuOpen}>
          <div className="inner">
             <img src={InvertedLogo} alt="white-logo" />
             <ul className='overlayMenu'>
-               {menu.menuItems.nodes.map(item=>(
+               {wpMenu.menuItems.nodes.map(item=>(
                   !item.parentId ? (
                      <li key={item.id}>
                         <Link to={item.url} activeClassName='overlayActive'>
@@ -28,6 +28,7 @@ const OverlayMenu = ({menuOpen, callback}) => {
                onClick={callback}
                role="button"
                tabIndex="0"
+               onKeyDown={callback}
             >
                <img src={CloseBtn} alt="Close" />
             </div>
