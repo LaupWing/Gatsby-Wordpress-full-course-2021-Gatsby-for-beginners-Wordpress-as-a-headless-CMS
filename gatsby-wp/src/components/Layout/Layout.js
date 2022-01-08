@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import Footer from '../Footer/Footer'
 import Hamburger from '../Hamburger/Hamburger'
 import Header from '../Header/Header'
 import {GlobalStyles, Primary} from './Layout.styles'
@@ -14,6 +15,7 @@ const Layout = ({children}) => {
          <Hamburger handleOverlayMenu={handleOverlayMenu}/>
          <Header/>
          <Primary>{children}</Primary>
+         <Footer/>
       </>
    )
 }

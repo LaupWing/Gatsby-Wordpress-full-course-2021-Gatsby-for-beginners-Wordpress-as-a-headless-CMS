@@ -11,9 +11,9 @@ const Navigation = ({menu}) => {
                   <li key={mainItem.id}>
                      <Link to={mainItem.url} activeClassName='nav-active'>
                         {mainItem.label}
-                        {mainItem.child.nodes.length !== 0 && <div>&#8964;</div>}
+                        {mainItem.childItems.nodes.length !== 0 && <div>&#8964;</div>}
                      </Link>
-                     {mainItem.child.nodes.length !== 0  ? (
+                     {mainItem.childItems.nodes.length !== 0  ? (
                         <ul>
                            {mainItem.childItems.nodes.map(childItem =>(
                               <li key={childItem.id}>
