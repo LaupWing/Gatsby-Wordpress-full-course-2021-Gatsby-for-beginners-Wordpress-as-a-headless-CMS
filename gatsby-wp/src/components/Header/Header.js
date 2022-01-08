@@ -5,7 +5,7 @@ import {useMenuQuery} from '../../hooks/useMenuQuery'
 import {Content, Wrapper} from './Header.styles'
 
 const Header = () => {
-   const {site} = useMenuQuery()
+   const {site, wpmenu} = useMenuQuery()
    console.log(site)
    return (
       <Wrapper>
