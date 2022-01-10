@@ -1,4 +1,5 @@
 import * as React from "react"
+import About from "../components/About/About"
 import CTAArea from "../components/CTAArea/CTAArea"
 import Hero from "../components/Hero/Hero"
 import LatestBlogPost from "../components/LatestBlogPost/LatestBlogPost"
@@ -14,6 +15,7 @@ const IndexPage = () => (
       <CTAArea/>
       <LatestBlogPost/>
       <Quote/>
+      <About/>
    </Layout>
 )
 

@@ -1,6 +1,7 @@
 import { useQuoteQuery } from "../../hooks/useQuoteQuery"
 import { Content, Wrapper } from "./Quote.styles"
 import QuoteImg from '../../images/quote.svg'
+import React from 'react'
 
 const Quote = () => {
    const data = useQuoteQuery()
