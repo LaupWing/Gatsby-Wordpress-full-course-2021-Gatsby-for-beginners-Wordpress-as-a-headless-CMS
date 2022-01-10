@@ -10,8 +10,8 @@ const Quote = () => {
       <Wrapper>
          <Content>
             <img src={QuoteImg}/>
-            <h6>{data.wpPage.ACF_Homepage.citat1Text}</h6>
-            <p>{data.wpPage.ACF_Homepage.citat1Author}</p>
+            <h6>{data.wpPage.ACF_HomePage.citat1Text}</h6>
+            <p>{data.wpPage.ACF_HomePage.citat1Author}</p>
          </Content>
       </Wrapper>
    )
