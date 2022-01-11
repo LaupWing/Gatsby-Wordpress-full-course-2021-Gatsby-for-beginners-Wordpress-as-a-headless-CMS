@@ -1,3 +1,4 @@
+import { graphql } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import Layout from '../components/Layout/Layout'
@@ -19,7 +20,7 @@ const PageContent = styled.article`
    margin-top: 20px;
 `
 
-const PageTemplate = () =>(
+const PageTemplate = ({data}) => (
    <Layout>
       <p>PageHero</p>
       <Wrapper>
@@ -30,3 +31,51 @@ const PageTemplate = () =>(
 )
 
 export default PageTemplate
+
+export const pageQuery = graphql`
+   query($id: String!) {
+   wpPage(id:{ eq: $id}) {
+      id
+      title
+      content
+      status
+      featuredImage {
+         node {
+         id
+         localFile {
+            childImageSharp {
+               gatsbyImageData(width: 1920, placeholder: TRACED_SVG)
+            }
+         }
+         }
+      }
+      wpChildren {
+         nodes {
+         ... on WpPage {
+            id
+            uri
+            title
+         }
+         }
+      }
+      wpParent {
+         node {
+         ... on WpPage {
+            id
+            uri
+            title
+            wpChildren {
+               nodes {
+               ... on WpPage {
+                  id
+                  title
+                  uri
+               }
+               }
+            }
+         }
+         }
+      }
+   }
+   }
+`
