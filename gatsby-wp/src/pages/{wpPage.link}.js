@@ -1,8 +1,10 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
+import BreadCrumb from '../components/BreadCrumb/BreadCrumb'
 import Layout from '../components/Layout/Layout'
 import PageHero from '../components/PageHero/PageHero'
+import PageSideBar from '../components/PageSidebar/PageSideBar'
 
 const Wrapper = styled.div`
    max-width: 1180px;
@@ -31,8 +33,20 @@ const PageTemplate = ({data}) => (
          />
       ) : null}
       <Wrapper>
-         <p>Sidebar</p>
-         <p>Content</p>
+         <BreadCrumb parent={data.wpPage.wpParent && data.wpPage.wpParent.node}/>
+         <ContentWrapper>
+            <PageSideBar
+               parentChildren={data.wpPage.wpParent && data.wpPage.wpParent.node.wpChildren.nodes}
+               currentPage={data.wpPage}
+               parent={data.wpPage.wpParent && data.wpPage.wpParent.node.title}
+            >
+               {data.wpPage.wpChildren}
+            </PageSideBar>
+            <PageContent>
+               <h1 dangerouslySetInnerHTML={{__html: data.wpPage.title}}></h1>
+               <div dangerouslySetInnerHTML={{__html: data.wpPage.content}}></div>
+            </PageContent>
+         </ContentWrapper>
       </Wrapper>
    </Layout>
 )
