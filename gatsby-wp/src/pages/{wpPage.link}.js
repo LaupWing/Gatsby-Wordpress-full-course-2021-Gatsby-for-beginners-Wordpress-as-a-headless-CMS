@@ -2,6 +2,7 @@ import { graphql } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import Layout from '../components/Layout/Layout'
+import PageHero from '../components/PageHero/PageHero'
 
 const Wrapper = styled.div`
    max-width: 1180px;
@@ -22,7 +23,13 @@ const PageContent = styled.article`
 
 const PageTemplate = ({data}) => (
    <Layout>
-      <p>PageHero</p>
+      {data.wpPage.featuredImage ? (
+         <PageHero
+            img={
+               data.wpPage.featuredImage.node.localFile.childImageSharp.gatsbyImageData
+            }
+         />
+      ) : null}
       <Wrapper>
          <p>Sidebar</p>
          <p>Content</p>
