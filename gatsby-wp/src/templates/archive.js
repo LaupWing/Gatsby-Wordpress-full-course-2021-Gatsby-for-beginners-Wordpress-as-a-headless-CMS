@@ -3,9 +3,10 @@ import { StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
 import ArchiveSidebar from '../components/ArchiveSidebar/ArchiveSidebar'
 import BreadCrumb from '../components/BreadCrumb/BreadCrumb'
+import Pagination from '../components/Pagination/Pagination'
 import { ContentWrapper, PageContent, StyledDate, StyledH2, StyledReadMore, Wrapper } from './archive.styles'
 
-const archive = ({data: {allWpPost}, pageContext: { catId, catName, catUri, numPages, currentPages}}) => {
+const archive = ({data: {allWpPost}, pageContext: { catId, catName, catUri, numPages, currentPage}}) => {
    return (
       <Layout>
          <StaticImage
@@ -47,6 +48,11 @@ const archive = ({data: {allWpPost}, pageContext: { catId, catName, catUri, numP
                         </div>
                      </article>
                   ))}
+                  <Pagination
+                     catUri={catUri}
+                     page={currentPage}
+                     totalPages={numPages}
+                  />
                </PageContent>
             </ContentWrapper>
          </Wrapper>
