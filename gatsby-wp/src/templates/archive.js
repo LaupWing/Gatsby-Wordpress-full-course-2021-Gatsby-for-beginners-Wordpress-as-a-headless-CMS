@@ -1,10 +1,11 @@
 import { graphql } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
+import ArchiveSidebar from '../components/ArchiveSidebar/ArchiveSidebar'
 import BreadCrumb from '../components/BreadCrumb/BreadCrumb'
-import { Wrapper } from './archive.styles'
+import { ContentWrapper, Wrapper } from './archive.styles'
 
-const archive = ({data: {allWpPost}}) => {
+const archive = ({data: {allWpPost}, pageContext: { catId, catName, catUri, numPages, currentPages}}) => {
    return (
       <Layout>
          <StaticImage
@@ -21,6 +22,9 @@ const archive = ({data: {allWpPost}}) => {
                   title: 'blog'
                }}
             />
+            <ContentWrapper>
+               <ArchiveSidebar catId={catId} categories={categories.edges}/>
+            </ContentWrapper>
          </Wrapper>
       </Layout>
    )
