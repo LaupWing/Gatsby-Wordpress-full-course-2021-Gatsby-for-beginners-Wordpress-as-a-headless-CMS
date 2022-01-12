@@ -2,6 +2,7 @@ import { Link } from 'gatsby'
 import React from 'react'
 import { Wrapper } from './BreadCrumb.styles'
 
+
 const BreadCrumb = ({parent}) => {
    return (
       <Wrapper>
