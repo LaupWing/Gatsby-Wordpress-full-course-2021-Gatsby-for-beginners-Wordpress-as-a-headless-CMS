@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import BreadCrumb from '../../components/BreadCrumb/BreadCrumb'
 import Layout from '../../components/Layout/Layout'
+import PostSidebar from '../../components/PostSidebar/PostSidebar'
 
 const Wrapper = styled.div`
    max-width: 1180px;
@@ -32,9 +33,14 @@ const PostTemplate = ({data}) => {
                }}
             />
             <ContentWrapper>
+               <PostSidebar
+                  date={data.post.date}
+                  author={data.post.author.node.name}
+                  categories={data.post.categories.nodes}
+               />
                <PostContent>
-                  <h1>Header</h1>
-                  <div>Content</div>
+                  <h1 dangerouslySetInnerHTML={{__html: data.post.title}}/>
+                  <div dangerouslySetInnerHTML={{__html: data.post.content}}/>
                </PostContent>
             </ContentWrapper>
          </Wrapper>
