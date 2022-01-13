@@ -52,7 +52,7 @@ export default PostTemplate
 
 export const pageQuery = graphql`
    query($id: String!){
-      post: wpPost(id: { eq $id}){
+      post: wpPost(id: { eq: $id}){
          title
          content
          author{
