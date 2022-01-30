@@ -27,6 +27,7 @@ const PageContent = styled.article`
 
 const PageTemplate = ({ data }) => (
   <Layout>
+     heh
     {data.wpPage.featuredImage ? (
       <PageHero
         img={

@@ -44,6 +44,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     // Also don't want to create pages for uncategorized
     if (numberOfPosts > 0 || category.node.name !== "uncategorized") {
       Array.from({ length: numPages }).forEach((_, i) => {
+         console.log(category.node.uri)
         createPage({
           path:
             i === 0 ? `${category.node.uri}` : `${category.node.uri}${i + 1}`,
